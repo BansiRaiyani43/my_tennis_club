@@ -1,0 +1,84 @@
+<html>
+  <head>
+      <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e3f6f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;  
+    }
+
+    form {
+      background-color: rgb(120, 186, 188);
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 350px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: bold;
+      font-size: 20px;
+      color: #0a0a0a;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="file"] {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color:lch(96.58% 31.28 121.73);
+      color: black;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: lch(95.83% 23.57 122.05);
+    }
+  </style>
+  </head>
+    <body>
+    <!--from code start-->
+     <form align="center" action="{% url 'addstudent' %}" enctype="multipart/form-data" method="post">
+       {% csrf_token %} 
+   
+      <label for="fname" >First Name :</label>
+      <input type="text" name="fname"><br><br>
+ 
+      <label for="lname">Last Name :</label>
+      <input type="text" name="lname"><br><br>
+    
+      <label for="age">Age :</label>
+      <input type="number" name="age"><br><br>
+    
+      <label for="email">Email :</label>
+      <input type="email" name="email"><br><br>
+    
+      <label for="phone">Phone :</label>
+      <input type="tel" name="phone"><br><br>
+
+      <label for="img">Image :</label>
+      <input type="file" name="img"><br><br>
+       
+      <button type="submit">Submit</button>
+    
+     </form>
+ <!--form code end-->
+    </body>
+ </html>

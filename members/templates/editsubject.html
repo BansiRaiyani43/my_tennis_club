@@ -1,0 +1,70 @@
+<html>
+    <head>
+     <style>
+        body{
+            background-color: #e3f6f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            background-color: rgb(120, 186, 188);
+            padding: 30px 30px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        label {
+             display:inline;
+             margin-bottom: 4px;
+             font-weight: bold;
+             font-size: 20px;
+             color: #0a0a0a;
+        }
+        input{
+            width: 100px;
+            padding: 8px 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color:lch(96.58% 31.28 121.73);
+            color: black;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: lch(95.83% 23.57 122.05);
+        }
+     </style>
+   </head>
+   <body>
+    <form action="{% url 'editsubject' e1.id %}" method="post">
+     {% csrf_token %} 
+
+        <label for="stu_id" >Student Id :</label>  
+        <select id="stu_id" name="stu_id">
+        {% for i in e %}
+        <option value="{{i.id}}">{{ i.firstname }} {{ i.lastname }}</option>
+        {% endfor %}
+        </select><br><br>
+
+        <label for="sub_name">Subject Name :</label>
+        <input value="{{e1.subjectname}}"type="text" name="sub_name"><br><br>
+        
+        <label for="cha">Chapter :</label>
+        <input value="{{e1.chapter}}"type="number" name="cha"><br><br>
+        
+        <label for="des">Description :</label>
+        <input value="{{e1.description}}"type="text" name="des"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+   </body>
+</html>
