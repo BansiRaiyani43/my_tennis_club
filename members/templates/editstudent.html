@@ -45,7 +45,7 @@
      </style>
    </head>
    <body>
-    <form align="center" action="{% url 'editstudent' e1.id %}" method="post">
+    <form align="center" action="{% url 'editstudent' e1.id %}" enctype="multipart/form-data" method="post">
         {% csrf_token %} 
     
         <label for="fname" >First Name :</label>
@@ -64,7 +64,7 @@
         <input value="{{e1.phone}}"type="tel" name="phone"><br><br>
 
         <label for="img">Image :</label>
-        <input value="{{e1.image}}" type="file" name="img"><br><br>
+        <input type="file" name="img"><br><br>
 
         <button type="submit">Submit</button>
     </form>
