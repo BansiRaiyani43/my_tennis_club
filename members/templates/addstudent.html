@@ -1,3 +1,5 @@
+{%  extends 'basefile.html' %}
+
 <html>
   <head>
       <style>
@@ -53,6 +55,8 @@
     }
   </style>
   </head>
+  
+{% block body %}
     <body>
     <!--from code start-->
      <form align="center" action="{% url 'addstudent' %}" enctype="multipart/form-data" method="post">
@@ -82,3 +86,5 @@
  <!--form code end-->
     </body>
  </html>
+
+{% endblock %}

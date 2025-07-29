@@ -1,3 +1,4 @@
+{%  extends 'basefile.html' %}
 <html>
   <head>
     <style>
@@ -60,6 +61,7 @@
         height: 40px;
         }
     </style>
+    {% block body %}
     <body>
       <table>
           <div class="button-container">
@@ -92,5 +94,6 @@
         </tbody>
       </table>  
     </body>
+    {% endblock %}
   </head>
 </html>

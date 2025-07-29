@@ -7,12 +7,11 @@ from .models import student,subject
 def demo(request):
   return HttpResponse("Hello world!")
 
-def demo2(request):
-  return HttpResponse("You are in aboutus page")
-  
 def demo3(request):
   return HttpResponse("You are in contact us page")
 
+def demo2(request):
+  return render(request,"home.html")
 
 def demo1(request):
   s1 = student.objects.all().order_by('firstname')
@@ -21,7 +20,7 @@ def demo1(request):
     's1' : s1
   }
   print(context)
-  return render(request,"home.html",context)
+  return render(request,"firsttemplate.html",context)
 
 #add student function start...
 def add_student(request):
@@ -45,7 +44,7 @@ def add_student(request):
 
     print(request.POST['fname'])
 
-    return redirect("home")
+    return redirect("firsttemplate")
   else :
     return render(request,"addstudent.html")
 #add student function end..
@@ -68,12 +67,11 @@ def edit_student(request,id):
     f1.email=email
     f1.phone=phone
     f1.image=img
-
     f1.save()
 
     print(request.POST['fname'])
 
-    return redirect("home")
+    return redirect("firsttemplate")
   else :
     e1 = student.objects.get(id=id)
     context ={
@@ -87,7 +85,7 @@ def edit_student(request,id):
 def delete_student(request,id):
   e1 = student.objects.get(id=id)
   e1.delete()
-  return redirect("home")
+  return redirect("firsttemplate")
 #delete student function end
 
 #functions of subject table
