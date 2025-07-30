@@ -1,78 +1,80 @@
-{%  extends 'basefile.html' %}
+{% extends 'basefile.html' %}
 {% block body %}
-    <body>
-    <!--from code start-->
-     <form  action="{% url 'addstudent' %}" enctype="multipart/form-data" method="post">
-       {% csrf_token %} 
-   
-      <label for="fname" >First Name :</label>
-      <input type="text" name="fname"><br><br>
- 
-      <label for="lname">Last Name :</label>
-      <input type="text" name="lname"><br><br>
-    
-      <label for="age">Age :</label>
-      <input type="number" name="age"><br><br>
-    
-      <label for="email">Email :</label>
-      <input type="email" name="email"><br><br>
-    
-      <label for="phone">Phone :</label>
-      <input type="tel" name="phone"><br><br>
-
-      <label for="img">Image :</label>
-      <input type="file" name="img"><br><br>
-       
-      <button type="submit">Submit</button>
-    
-     </form>
- <!--form code end-->
-    </body>
-
+<div class="container">   
 <div class="col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s">
-              <div class="bg-primary text-center p-5">
-                  <h1 class="mb-4">Add Student</h1>
-                  <form>
-                      <div class="row g-3">
-                          <div class="col-sm-6">
-                              <div class="form-floating">
-                                  <input type="text" class="form-control border-0" id="gname" placeholder="Gurdian Name">
-                                  <label for="gname">Your Name</label>
-                              </div>
-                          </div>
-                          <div class="col-sm-6">
-                              <div class="form-floating">
-                                  <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
-                                  <label for="gmail">Your Email</label>
-                              </div>
-                          </div>
-                          <div class="col-sm-6">
-                              <div class="form-floating">
-                                  <input type="number" class="form-control border-0" id="cname" placeholder="Child Name">
-                                  <label for="cname">Your Age</label>
-                              </div>
-                          </div>
-                          <div class="col-sm-6">
-                              <div class="form-floating">
-                                  <input type="tel" class="form-control border-0" id="cage" placeholder="Child Age">
-                                  <label for="cage">Your Mobile No.</label>
-                              </div>
-                          </div>
-                          <div class="col-12">
-                              <div class="form-floating">
-                                  <input type="file" class="form-control border-0" >
-                                  <label for="message">Your Image</label>
-                              </div>
-                          </div>
-                          <div class="col-12">
-                              <button class="btn btn-dark w-100 py-3" type="submit">Submit</button>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-          </div>  
-    {% endblock %}
-   
+    <div class="bg-primary text-center p-5">
+        <h1 class="mb-4">Add Student</h1>
+        <form action="{% url 'addstudent' %}" enctype="multipart/form-data" method="post">
+        {% csrf_token %} 
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control border-0" id="fname" name="fname" placeholder="Gurdian Name">
+                        <label for="fname">Your First Name</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control border-0" id="lname" name="lname" placeholder="Gurdian Name">
+                        <label for="lname">Your Last Name</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control border-0" id="email" name="email" placeholder="Gurdian Email">
+                        <label for="email">Your Email</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="number" class="form-control border-0" id="age" name="age" placeholder="Child Name">
+                        <label for="age">Your Age</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="tel" class="form-control border-0" id="phone" name="phone"  placeholder="Child Age">
+                        <label for="phone">Your Mobile No.</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="file" class="form-control border-0" name="img">
+                        <label for="img">Your Image</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-dark w-100 py-3" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>  
+{% endblock %}
 
- </html>
 
+{% comment %} <form  action="{% url 'addstudent' %}" enctype="multipart/form-data" method="post">
+{% csrf_token %} 
+
+<label for="fname" >First Name :</label>
+<input type="text" name="fname"><br><br>
+
+<label for="lname">Last Name :</label>
+<input type="text" name="lname"><br><br>
+
+<label for="age">Age :</label>
+<input type="number" name="age"><br><br>
+
+<label for="email">Email :</label>
+<input type="email" name="email"><br><br>
+
+<label for="phone">Phone :</label>
+<input type="tel" name="phone"><br><br>
+
+<label for="img">Image :</label>
+<input type="file" name="img"><br><br>
+
+<button type="submit">Submit</button>
+
+</form> {% endcomment %}
