@@ -1,50 +1,60 @@
-<html>
-    <head>
-     <style>
-        body{
-            background-color: #e3f6f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        form{
-            background-color: rgb(120, 186, 188);
-            padding: 30px 30px;
-            border-radius: 10px;
-            width: 350px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        label {
-             display:inline;
-             margin-bottom: 4px;
-             font-weight: bold;
-             font-size: 20px;
-             color: #0a0a0a;
-        }
-        input{
-            width: 100px;
-            padding: 8px 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color:lch(96.58% 31.28 121.73);
-            color: black;
-            border: none;
-            border-radius: 10px;
-            font-size: 17px;
-            cursor: pointer;
-        }
+{% extends 'basefile.html' %}
+{% block body %}
+<div class="col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="bg-primary text-center p-5">
+        <h1 class="mb-4">Edit Student</h1>
+        <form action="{% url 'editstudent' e1.id %}" enctype="multipart/form-data" method="post">
+        {% csrf_token %} 
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input value="{{e1.firstname}}" type="text" class="form-control border-0" id="fname" name="fname" placeholder="Gurdian Name">
+                        <label for="fname">Your First Name</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input value="{{e1.lastname}}" type="text" class="form-control border-0" id="lname" name="lname" placeholder="Gurdian Name">
+                        <label for="lname">Your Last Name</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input value="{{e1.email}}" type="email" class="form-control border-0" id="email" name="email" placeholder="Gurdian Email">
+                        <label for="email">Your Email</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input value="{{e1.age}}" type="number" class="form-control border-0" id="age" name="age" placeholder="Child Name">
+                        <label for="age">Your Age</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input value="{{e1.phone}}" type="tel" class="form-control border-0" id="phone" name="phone"  placeholder="Child Age">
+                        <label for="phone">Your Mobile No.</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="file" class="form-control border-0" name="img">
+                        <label for="img">Your Image</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-dark w-100 py-3" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>  
+{% endblock %}
 
-        button:hover {
-            background-color: lch(95.83% 23.57 122.05);
-        }
-     </style>
-   </head>
-   <body>
+
+
+
+{% comment %} 
     <form align="center" action="{% url 'editstudent' e1.id %}" enctype="multipart/form-data" method="post">
         {% csrf_token %} 
     
@@ -67,6 +77,5 @@
         <input type="file" name="img"><br><br>
 
         <button type="submit">Submit</button>
-    </form>
-   </body>
-</html>
+    </form> {% endcomment %}
+   

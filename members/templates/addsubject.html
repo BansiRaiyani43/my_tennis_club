@@ -1,61 +1,57 @@
-<html>
-<head>
-  <style>
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #e3f6f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-    }
+{% extends 'basefile.html' %}
+{% block body %}
+<div class="col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="bg-primary text-center p-5">
+        <h1 class="mb-4">Add Student</h1>
+        <form action="{% url 'addsubject' %}" enctype="multipart/form-data" method="post">
+        {% csrf_token %} 
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control border-0" id="fname" name="fname" placeholder="Gurdian Name">
+                        <label for="fname">Your First Name</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control border-0" id="lname" name="lname" placeholder="Gurdian Name">
+                        <label for="lname">Your Last Name</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control border-0" id="email" name="email" placeholder="Gurdian Email">
+                        <label for="email">Your Email</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="number" class="form-control border-0" id="age" name="age" placeholder="Child Name">
+                        <label for="age">Your Age</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="tel" class="form-control border-0" id="phone" name="phone"  placeholder="Child Age">
+                        <label for="phone">Your Mobile No.</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="file" class="form-control border-0" name="img">
+                        <label for="img">Your Image</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-dark w-100 py-3" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
 
-    form {
-    background-color: rgb(120, 186, 188);
-    padding: 30px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    }
-
-    label {
-    display: block;
-    margin-bottom: 4px;
-    font-weight: bold;
-    font-size: 20px;
-    color: #0a0a0a;
-    }
-
-    input[type="text"],
-    input[type="number"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="file"] {
-    width: 100%;
-    padding: 8px 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    }
-
-    button {
-    width: 100%;
-    padding: 10px;
-    background-color:lch(96.58% 31.28 121.73);
-    color: black;
-    border: none;
-    border-radius: 10px;
-    font-size: 17px;
-    cursor: pointer;
-    }
-
-    button:hover {
-    background-color: lch(95.83% 23.57 122.05);
-    }
-  </style>
-</head>
-  <body>
-    <!--form code start-->
-    <form action="{% url 'addsubject' %}" enctype="multipart/form-data" method="post">
+{% comment %} <form action="{% url 'addsubject' %}" enctype="multipart/form-data" method="post">
     {% csrf_token %} 
       <label for="stu_id" >Student Id :</label>
       <select id="stu_id" name="stu_id">
@@ -74,8 +70,4 @@
       <input type="text" name="des"><br><br>
 
       <button type="submit">Submit</button>
-
-     
-    </form>
-  </body>
-</html>
+</form> {% endcomment %}

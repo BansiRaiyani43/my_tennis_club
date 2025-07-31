@@ -1,4 +1,5 @@
 {%  extends 'basefile.html' %}
+{% block body %}
 <html>
   <head>
     <style>
@@ -20,6 +21,7 @@
         border-bottom: 1px solid #DDD;
         font-size: large;
         text-align: center;
+        color:black
         }
         tbody tr:nth-child(even){
         background-color: #ecfbeef8;
@@ -27,7 +29,7 @@
         tbody tr:hover{
         background-color: #e3f9e6f8;
         }
-        a{
+        .edit{
         font-size: 17px;
         background-color: #04AA6D; 
         color: white; 
@@ -61,14 +63,13 @@
         height: 40px;
         }
     </style>
-    {% block body %}
     <body>
       <table>
           <div class="button-container">
            <a href="addsubject" class="button2">Add Subject</a>
           </div>
         <thead>
-          <tr>
+          <tr align="center">
             <th>Student Name</th>
             <th>Email</th>
             <th>Subject Name</th>
@@ -86,7 +87,7 @@
           <td>{{x.chapter}}</td>
           <td>{{x.description}}</td>
           <td>
-          <a href="editsubject/{{x.id}}">Edit</a>
+          <a href="editsubject/{{x.id}}" class="edit">Edit</a>
           <a href="deletesubject/{{x.id}}" class="button1" onclick="alert('Are you sure you want to delete this data ?')">Delete</a>
       </td>
         </tr>
