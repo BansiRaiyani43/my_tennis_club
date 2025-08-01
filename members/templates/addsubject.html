@@ -1,45 +1,40 @@
 {% extends 'basefile.html' %}
 {% block body %}
+<div class="container">
+<div class="row justify-content-center">
 <div class="col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s">
     <div class="bg-primary text-center p-5">
-        <h1 class="mb-4">Add Student</h1>
+        <h1 class="mb-4">Add Subject</h1>
         <form action="{% url 'addsubject' %}" enctype="multipart/form-data" method="post">
         {% csrf_token %} 
             <div class="row g-3">
                 <div class="col-sm-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control border-0" id="fname" name="fname" placeholder="Gurdian Name">
-                        <label for="fname">Your First Name</label>
+                        <select class="form-select border-0" id="stu_id" name="stu_id">
+                            <option>Select Student</option>
+                            {% for i in e %}
+                            <option value="{{i.id}}">{{ i.firstname }} {{ i.lastname }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="stu_id">Student Name</label> 
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control border-0" id="lname" name="lname" placeholder="Gurdian Name">
-                        <label for="lname">Your Last Name</label>
+                        <input type="text" class="form-control border-0" id="sub_name" name="sub_name" placeholder="Gurdian Name">
+                        <label for="sub_name">Subject Name</label>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-floating">
-                        <input type="email" class="form-control border-0" id="email" name="email" placeholder="Gurdian Email">
-                        <label for="email">Your Email</label>
+                        <input type="number" class="form-control border-0" id="cha" name="cha" placeholder="Gurdian Email">
+                        <label for="cha">Chapter</label>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-floating">
-                        <input type="number" class="form-control border-0" id="age" name="age" placeholder="Child Name">
-                        <label for="age">Your Age</label>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-floating">
-                        <input type="tel" class="form-control border-0" id="phone" name="phone"  placeholder="Child Age">
-                        <label for="phone">Your Mobile No.</label>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-floating">
-                        <input type="file" class="form-control border-0" name="img">
-                        <label for="img">Your Image</label>
+                        <input type="text" class="form-control border-0" id="des" name="des" placeholder="Child Name">
+                        <label for="des">Description</label>
                     </div>
                 </div>
                 <div class="col-12">
@@ -48,6 +43,8 @@
             </div>
         </form>
     </div>
+</div>
+</div>
 </div>
 {% endblock %}
 

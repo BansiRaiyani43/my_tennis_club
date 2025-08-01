@@ -1,70 +1,71 @@
-<html>
-    <head>
-     <style>
-        body{
-            background-color: #e3f6f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        form{
-            background-color: rgb(120, 186, 188);
-            padding: 30px 30px;
-            border-radius: 10px;
-            width: 350px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        label {
-             display:inline;
-             margin-bottom: 4px;
-             font-weight: bold;
-             font-size: 20px;
-             color: #0a0a0a;
-        }
-        input{
-            width: 100px;
-            padding: 8px 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color:lch(96.58% 31.28 121.73);
-            color: black;
-            border: none;
-            border-radius: 10px;
-            font-size: 17px;
-            cursor: pointer;
-        }
+{% extends 'basefile.html' %}
+{% block body %}
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="bg-primary text-center p-5">
+        <h1 class="mb-4">Edit Subject</h1>
+        <form action="{% url 'editsubject' e1.id %}" method="post">
+        {% csrf_token %} 
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <select class="form-select border-0" id="stu_id" name="stu_id">
+                            <option>Select Student</option>
+                            {% for i in e %}
+                            <option value="{{i.id}}">{{ i.firstname }} {{ i.lastname }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="stu_id">Student Name</label> 
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input value="{{e1.subjectname}}" type="text" class="form-control border-0" id="sub_name" name="sub_name" placeholder="Gurdian Name">
+                        <label for="sub_name">Subject Name</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input value="{{e1.chapter}}" type="number" class="form-control border-0" id="cha" name="cha" placeholder="Gurdian Email">
+                        <label for="cha">Chapter</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input value="{{e1.description}}" type="text" class="form-control border-0" id="des" name="des" placeholder="Child Name">
+                        <label for="des">Description</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-dark w-100 py-3" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
 
-        button:hover {
-            background-color: lch(95.83% 23.57 122.05);
-        }
-     </style>
-   </head>
-   <body>
-    <form action="{% url 'editsubject' e1.id %}" method="post">
-     {% csrf_token %} 
+{% comment %} <form action="{% url 'editsubject' e1.id %}" method="post">
+    {% csrf_token %} 
 
-        <label for="stu_id" >Student Id :</label>  
-        <select id="stu_id" name="stu_id">
-        {% for i in e %}
-        <option value="{{i.id}}">{{ i.firstname }} {{ i.lastname }}</option>
-        {% endfor %}
-        </select><br><br>
+    <label for="stu_id" >Student Id :</label>  
+    <select id="stu_id" name="stu_id">
+    {% for i in e %}
+    <option value="{{i.id}}">{{ i.firstname }} {{ i.lastname }}</option>
+    {% endfor %}
+    </select><br><br>
 
-        <label for="sub_name">Subject Name :</label>
-        <input value="{{e1.subjectname}}"type="text" name="sub_name"><br><br>
-        
-        <label for="cha">Chapter :</label>
-        <input value="{{e1.chapter}}"type="number" name="cha"><br><br>
-        
-        <label for="des">Description :</label>
-        <input value="{{e1.description}}"type="text" name="des"><br><br>
+    <label for="sub_name">Subject Name :</label>
+    <input value="{{e1.subjectname}}"type="text" name="sub_name"><br><br>
+    
+    <label for="cha">Chapter :</label>
+    <input value="{{e1.chapter}}"type="number" name="cha"><br><br>
+    
+    <label for="des">Description :</label>
+    <input value="{{e1.description}}"type="text" name="des"><br><br>
 
-        <button type="submit">Submit</button>
-    </form>
-   </body>
-</html>
+    <button type="submit">Submit</button>
+</form> {% endcomment %}
